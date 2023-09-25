@@ -1,6 +1,6 @@
 package repositories
 
-import "github.com/iki-rumondor/assignment2-GLNG-KS-08-08/domains"
+import "github.com/iki-rumondor/assignment2-08/domains"
 
 type OrderRepository interface {
 	FindAll() (*[]domains.Order, error)

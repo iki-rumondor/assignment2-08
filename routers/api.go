@@ -2,10 +2,10 @@ package routers
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/iki-rumondor/assignment2-GLNG-KS-08-08/handlers"
+	"github.com/iki-rumondor/assignment2-08/handlers"
 )
 
-func StartServer(h *handlers.Handlers) *gin.Engine{
+func StartServer(h *handlers.Handlers) *gin.Engine {
 	router := gin.Default()
 
 	router.GET("/orders", h.OrderHandler.GetAllOrders)

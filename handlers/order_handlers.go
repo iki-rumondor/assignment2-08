@@ -7,10 +7,10 @@ import (
 	"strconv"
 
 	"github.com/gin-gonic/gin"
-	"github.com/iki-rumondor/assignment2-GLNG-KS-08-08/applications/requests"
-	"github.com/iki-rumondor/assignment2-GLNG-KS-08-08/applications/responses"
-	"github.com/iki-rumondor/assignment2-GLNG-KS-08-08/applications/services"
-	"github.com/iki-rumondor/assignment2-GLNG-KS-08-08/domains"
+	"github.com/iki-rumondor/assignment2-08/applications/requests"
+	"github.com/iki-rumondor/assignment2-08/applications/responses"
+	"github.com/iki-rumondor/assignment2-08/applications/services"
+	"github.com/iki-rumondor/assignment2-08/domains"
 	"gorm.io/gorm"
 )
 
@@ -184,7 +184,7 @@ func (h *OrderHandler) UpdateOrder(c *gin.Context) {
 		})
 		return
 	}
-	
+
 	var items []domains.Item
 
 	for _, val := range body.Items {
