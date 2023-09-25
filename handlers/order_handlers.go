@@ -29,7 +29,7 @@ func (h *OrderHandler) GetAllOrders(c *gin.Context) {
 		return
 	}
 
-	var ordersRes []responses.OrderRes
+	var ordersRes = []responses.OrderRes{}
 
 	for _, order := range *orders {
 
@@ -148,10 +148,12 @@ func (h *OrderHandler) CreateOrder(c *gin.Context) {
 		Items:        items,
 	}
 
-	if err := h.Services.CreateOrder(&mod); err != nil {
+	err := h.Services.CreateOrder(&mod)
+
+	if err != nil {
 		c.AbortWithStatusJSON(http.StatusInternalServerError, gin.H{
 			"code":    http.StatusInternalServerError,
-			"message": "Failed to create order",
+			"message": err.Error(),
 		})
 		return
 	}
@@ -182,7 +184,7 @@ func (h *OrderHandler) UpdateOrder(c *gin.Context) {
 		})
 		return
 	}
-
+	
 	var items []domains.Item
 
 	for _, val := range body.Items {
@@ -213,7 +215,7 @@ func (h *OrderHandler) UpdateOrder(c *gin.Context) {
 	if err != nil {
 		c.AbortWithStatusJSON(http.StatusInternalServerError, gin.H{
 			"code":    http.StatusInternalServerError,
-			"message": "Failed to update order",
+			"message": err.Error(),
 		})
 		return
 	}
