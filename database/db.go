@@ -5,7 +5,7 @@ import (
 	"log"
 	"os"
 
-	"github.com/iki-rumondor/assignment2-GLNG-KS-08-08/models"
+	"github.com/iki-rumondor/assignment2-GLNG-KS-08-08/domains"
 	"github.com/joho/godotenv"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
@@ -47,7 +47,7 @@ func newPostgresDb(connStr string) (*gorm.DB, error) {
 		return nil, err
 	}
 
-	gormDb.Debug().AutoMigrate(models.Order{}, models.Item{})
+	gormDb.Debug().AutoMigrate(domains.Order{}, domains.Item{})
 
 	return gormDb, nil
 }
